@@ -15,6 +15,7 @@ print()
 
 # varables
 run_tf = True
+run_tf2 = True
 username_list = []
 password_list = []
 username = "null"
@@ -54,24 +55,32 @@ finally:
     userpass_file.close()
 
 if run_tf:
-    # list generate
-    with open("./Resources/Lab02.json") as userpass_file:
-        userpass_str = userpass_file.read()
-        userpass = json.loads(userpass_str)
+    while run_tf2:
+        # list generate
+        with open("./Resources/Lab02.json") as userpass_file:
+            userpass_str = userpass_file.read()
+            userpass = json.loads(userpass_str)
 
-    username_list = userpass.get("username")
-    password_list = userpass.get("password")
+        username_list = userpass.get("username")
+        password_list = userpass.get("password")
 
-    # inputs from the user
-    username = input("Username: ")
-    password = input("Password: ")
+        # inputs from the user
+        username = input("Username: ")
+        password = input("Password: ")
 
-    access_tf = get_access(username, password)
+        access_tf = get_access(username, password)
 
-    if access_tf:
-        print("You are Authenticated!")
-    else:
-        print("You are not authrized to use the system.")
+        if access_tf:
+            print("You are Authenticated!")
+        else:
+            print("You are not authrized to use the system.")
+        
+        # quick video making code
+        print()
+        run = input()
+
+        if run == "n":
+            run_tf2 = False
 
 # page end
 print()
