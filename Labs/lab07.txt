@@ -1,0 +1,46 @@
+// Import nesseary libraries
+import json							// Line 1
+
+// Read json file
+with open("file.json", "rt") as file:		// Line 2
+	word_list = json.load(file)
+
+// Sort the list
+
+// Set pivot point
+pivot = length(word_list) - 1				// Line 4
+
+// Index of the largest word befor the pivot
+check = pivot - 1
+largest = pivot 
+
+while check >= 0:
+	if word_list[check] > word_list[largest]	// Line 9
+		largest = check
+	check = check - 1
+
+// Word swap
+if word_list[largest] > word_list[pivot]:		// Line 12
+	temp = word_list[pivot]
+	word_list[pivot] = word_list[largest]
+	word_list[largest] = temp
+
+// Print list
+for word in word_list:
+	print(word)						// Line 16
+
+// The effiniency of this program is O(n^2) because of the sorting process which 
+// is tarable for large data sets and there are faster was to sort it.
+
+// Trace Table
+Line	word_list	            pivot	 check  largest  temp
+3	["26", "6", "90", "55"]	-	 -	   -	      -
+7	["26", "6", "90", "55"]	3	 2	   3	      -
+9	["26", "6", "55", "90"]	3	 1	   2	      -
+9	["6", "26", "55", "90"]	3	 0	   1	      -
+11	["6", "26", "55", "90"]	3	 0	   1	      -
+15	["6", "26", "55", "90"]	-	 -	   -	      -
+16	"6"	                  -	 -	   -	      -
+16	"26"	                  -	 -	   -	      -
+16	"55"	                  -	 -	   -	      -
+16	"90"	                  -	 -	   -	      -
