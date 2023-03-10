@@ -1,0 +1,24 @@
+# Define the function to compute the François number
+function francois_number(n):
+    francois_sequence = [2, 1]
+    if n <= 2:
+        return francois_sequence[n-1]
+    else:
+        for i in range(3, n+1):
+            fn = francois_sequence[i-2] + francois_sequence[i-3]
+            francois_sequence.append(fn)
+        return francois_sequence[-1]
+
+# Prompt the user for a number and compute the corresponding François value
+print("Enter a number n to compute the nth François value:")
+n = int(input())
+francois_value = francois_number(n)
+print("The", n, "th François value is:", francois_value)
+
+
+# Trace Table with n = 6 from input
+
+n:         3    4    5    6
+i:         3    4    5    6
+fn:        3    4    7   11
+francois_sequence: [2, 1, 3, 4, 7, 11]
