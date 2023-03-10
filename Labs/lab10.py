@@ -19,7 +19,12 @@ def francois_number(n):
             francois_sequence.append(fn)
         return francois_sequence[-1]
 
-print("Enter a number n to compute the nth François value:")
-n = int(input())
-francois_value = francois_number(n)
-print("The", n, "th François value is:", francois_value)
+con = 1
+while con == 1:
+    print("Enter a number n to compute the nth François value:")
+    n = int(input())
+    francois_value = francois_number(n)
+    print("The", n, "th François value is:", francois_value)
+
+    print()
+    con = int(input("continue? "))
