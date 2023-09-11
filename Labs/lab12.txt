@@ -1,0 +1,54 @@
+# Prompt user for input
+n = get_integer_input("Enter a number: ")
+
+# Initialize an empty list to store prime numbers
+primes = []
+
+# Loop through each number from 2 to n
+for num in range(2, n+1):
+
+    # Assume the number is prime until proven otherwise
+    is_prime = True
+    
+    # Check if num is divisible by any number between 2 and num-1
+    for divisor in range(2, num):
+        if num % divisor == 0:
+            is_prime = False
+            break
+            
+    # If the number is prime, add it to the list
+    if is_prime:
+        primes.append(num)
+
+# Display the list of prime numbers
+print("The prime numbers up to", n, "are:", primes)
+
+Algorithmic Efficiency: O(n^2)
+
+Trace Table for n = 10:
+--------------------------------------------------------------
+| i      | j      | i is prime? | Action                        |
+--------------------------------------------------------------
+| 2      |        | Yes         | Add 2 to array of primes      |
+--------------------------------------------------------------
+| 3      | 2      | Yes         |                              |
+|        |        | Yes         | Add 3 to array of primes      |
+--------------------------------------------------------------
+| 4      | 2      | No          |                              |
+--------------------------------------------------------------
+| 5      | 2      | Yes         |                              |
+|        |        | Yes         | Add 5 to array of primes      |
+--------------------------------------------------------------
+| 6      | 2      | No          |                              |
+--------------------------------------------------------------
+| 7      | 2      | Yes         |                              |
+|        |        | Yes         | Add 7 to array of primes      |
+--------------------------------------------------------------
+| 8      | 2      | No          |                              |
+--------------------------------------------------------------
+| 9      | 2      | Yes         |                              |
+|        |        | No          |                              |
+--------------------------------------------------------------
+| 10     | 2      | No          |                              |
+--------------------------------------------------------------
+Array of primes: [2, 3, 5, 7]
